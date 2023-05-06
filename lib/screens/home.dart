@@ -18,7 +18,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: const Color(0xff212121),
       body: SafeArea(
         child: Column(
           children: [
@@ -36,14 +36,14 @@ class _HomeState extends State<Home> {
                           'Player: X',
                           style: TextStyle(
                               fontWeight: FontWeight.w300,
-                              color: Colors.black87,
+                              color: const Color(0xffd3c7d5),
                               fontSize: 25),
                         ),
                         Text(
                           'Score: ' + xscore.toString(),
                           style: TextStyle(
                               fontWeight: FontWeight.w300,
-                              color: Colors.black87,
+                              color: const Color(0xffd3c7d5),
                               fontSize: 25),
                         ),
                       ],
@@ -52,8 +52,8 @@ class _HomeState extends State<Home> {
                         ? Text(
                             dataTurn,
                             style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                color: Colors.black87,
+                                fontWeight: FontWeight.normal,
+                                color: const Color(0xff766174),
                                 fontSize: 25),
                           )
                         : Text(''),
@@ -85,15 +85,15 @@ class _HomeState extends State<Home> {
                               borderRadius: BorderRadius.circular(5),
                               border: Border.all(
                                 width: 0,
-                                color: Colors.white,
+                                color: Colors.white70,
                               ),
-                              color: Colors.black87,
+                              color: const Color(0xff766174),
                             ),
                             child: Center(
                                 child: Text(
                               displayxo[index],
                               style: TextStyle(
-                                  color: Colors.white,
+                                  color: Colors.black,
                                   fontSize: 35,
                                   fontWeight: FontWeight.w400),
                             )),
@@ -115,14 +115,14 @@ class _HomeState extends State<Home> {
                         'Player: O',
                         style: TextStyle(
                             fontWeight: FontWeight.w300,
-                            color: Colors.black87,
+                            color: const Color(0xffd3c7d5),
                             fontSize: 25),
                       ),
                       Text(
                         'Score: ' + oscore.toString(),
                         style: TextStyle(
                             fontWeight: FontWeight.w300,
-                            color: Colors.black87,
+                            color: const Color(0xffd3c7d5),
                             fontSize: 25),
                       ),
                     ],
@@ -131,8 +131,8 @@ class _HomeState extends State<Home> {
                       ? Text(
                           dataTurn,
                           style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Colors.black87,
+                              fontWeight: FontWeight.normal,
+                              color: const Color(0xff766174),
                               fontSize: 25),
                         )
                       : Text(''),
@@ -219,19 +219,15 @@ class _HomeState extends State<Home> {
       print(text);
       if (text == 'X') {
         xscore += 1;
-        Navigator.pushNamed(context, '/win',arguments: {
-          'win':'X wins the Game.'
-        });
+        Navigator.pushNamed(context, '/win',
+            arguments: {'win': 'X wins the Game.'});
       } else if (text == 'O') {
         oscore += 1;
-        Navigator.pushNamed(context, '/win',arguments: {
-          'win':'O wins the Game.'
-        });
+        Navigator.pushNamed(context, '/win',
+            arguments: {'win': 'O wins the Game.'});
       } else if (text == 'Draw') {
         print('Draw');
-        Navigator.pushNamed(context, '/win',arguments: {
-          'win':'Draw Match.'
-        });
+        Navigator.pushNamed(context, '/win', arguments: {'win': 'Draw Match.'});
       }
     });
   }

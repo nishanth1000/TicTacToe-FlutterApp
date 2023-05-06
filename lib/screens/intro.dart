@@ -1,52 +1,92 @@
 import 'package:flutter/material.dart';
 
-class Intro extends StatefulWidget {
+class Intro extends StatelessWidget {
   const Intro({Key? key}) : super(key: key);
 
   @override
-  State<Intro> createState() => _IntroState();
-}
-
-class _IntroState extends State<Intro> {
-  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: Center(
-        child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+    return GestureDetector(
+      onTap: () {
+        Navigator.pushReplacementNamed(context, '/home');
+      },
+      child: Scaffold(
+        backgroundColor: const Color(0xff212121),
+        body: SafeArea(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
-                'Tic-Tac-Toe',
-                style: TextStyle(
-                  fontWeight: FontWeight.w300,
-                  color: Colors.black87,
-                  fontSize: 40,
-                ),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  setState(() {
-                    Navigator.pushReplacementNamed(context, '/home');
-                  });
-                },
-                style: TextButton.styleFrom(
-                    backgroundColor: Colors.black87),
-                child: Padding(
-                  padding: const EdgeInsets.all(5.0),
-                  child: Text(
-                    'Start',
-                    style: TextStyle(
-                        fontSize: 21,
-                        fontWeight: FontWeight.w200,
-                        color: Colors.white),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(15),
+                    child: RotatedBox(
+                      quarterTurns: -1,
+                      child: Text(
+                        'Howdy  !!!',
+                        style: TextStyle(
+                          color: const Color(0xffd3c7d5).withOpacity(0.5),
+                          fontSize: 35,
+                          fontFamily: 'RubikVinyl',
+                        ),
+                      ),
+                    ),
                   ),
+                ],
+              ),
+              Column(
+                children: [
+                  Text(
+                    'Tic Tac Toe',
+                    style: TextStyle(
+                      color: const Color(0xff766174).withOpacity(1),
+                      fontSize: 50,
+                      fontFamily: 'RubikVinyl',
+                    ),
+                  ),
+                  Text(
+                    'XO  Game',
+                    style: TextStyle(
+                      color: const Color(0xff766174).withOpacity(0.6),
+                      fontSize: 25,
+                      fontFamily: 'RubikVinyl',
+                    ),
+                  ),
+                ],
+              ),
+              Padding(
+                padding: const EdgeInsets.all(22.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    RotatedBox(
+                      quarterTurns: -1,
+                      child: Column(
+                        children: [
+                          Text(
+                            'Nishanth',
+                            style: TextStyle(
+                              color: const Color(0xffd3c7d5).withOpacity(0.3),
+                              fontSize: 35,
+                              fontFamily: 'RubikVinyl',
+                            ),
+                          ),
+                          Text(
+                            'Kanagaraj',
+                            style: TextStyle(
+                              color: const Color(0xffd3c7d5).withOpacity(0.3),
+                              fontSize: 35,
+                              fontFamily: 'RubikVinyl',
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
                 ),
               ),
-            ]
+            ],
+          ),
         ),
       ),
     );

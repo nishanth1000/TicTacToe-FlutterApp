@@ -22,7 +22,7 @@ class _WinState extends State<Win> {
         Navigator.pop(context);
       },
       child: Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: const Color(0xff766174),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
